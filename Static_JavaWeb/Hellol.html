@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>测试前端</title>
+    <script type="text/javascript" src="TestJS.js"></script>
+    <script type="text/javascript">
+        var i = 12, j="12"
+        // alert(i==j)
+        // alert(typeof(i))
+        // sums = sum(5,5,"1")
+        // myObj.eat()
+        // alert(IObj.name)
+        // IObj.sleep(11,8)
+
+        // 动态注册onload事件
+        window.onload = function (){
+            alert("动态注册onload事件")
+
+            // 动态注册onclick事件
+            var bt1 = document.getElementById("bt2")    //返回值是一个对象
+            bt1.onclick = function (){
+                alert("动态注册onclick事件")
+            }
+
+            // 动态注册onblur事件
+            var userName = document.getElementById("name")
+            var pwd = document.getElementById("pwd")
+            userName.onblur = function (){
+                // console.log("失去焦点")
+                if (userName.value.length >5){
+                    alert("用户名长度大于5个字符")
+                }
+            }
+
+            // 动态注册onchange事件
+            var selectBar = document.getElementById("selectBar")
+            // selectBar.onchange = onchangeFun()
+            // 这样是不行的 相当于执行了onchangeFun()函数，并用selectBar.onchange接收返回值
+            selectBar.onchange = function (){
+                onchangeFun()
+            }
+
+            var userForm = document.getElementById("userForm")
+            userForm.onsubmit = function (){
+                // TODO 尝试用dom操作获取表单里输入框的值 2022-7-30
+                alert("有问题")
+                return false
+            }
+        }
+    </script>
+</head>
+<body><!-- onload=" onloadFun()/*alert('在body标签里静态注册onload事件')*/"-->
+    <h1 style="color: #01847f">Hello World</h1>
+
+    <!--无序表-->
+    <ul>
+        <li style="color: #e74645">1111</li>
+        <li style="color: #fb7756">1111</li>
+        <li style="color: #facd60">1111</li>
+        <li style="color: #fdfa66">1111</li>
+        <li style="color: #1ac0c6">1111</li>
+    </ul>
+
+    <!--静态注册onclick-->
+    <button onclick="testClic(i, j)" style="color: #01847f">点一下玩一年</button>
+    <button id="bt2" style="color: #01847f">点一下玩2年</button><br>
+
+    <form action="http://localhost:8080" id="userForm" method="get" >
+        用户名：<input id="name" type="text"><br>
+        密码：<input id="pwd" type="text"><br>
+<!--        静态注册onsubmit调用JS中的方法时一定要写上return onsubmitFun返回值为false-->
+<!--        <input type="submit" value="点击提交" style="color: #e74645" onsubmit="return onsubmitFun()">-->
+        <input type="submit" value="点击提交" style="color: #e74645">
+    </form>
+
+    <select id="selectBar">
+        <option>成都</option>
+        <option>北京</option>
+        <option>上海</option>
+        <option>广州</option>
+    </select>
+
+</body>
+</html>
