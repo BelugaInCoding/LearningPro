@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery测试</title>
+    <script type="text/javascript" src="JQuery/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+
+        $(function () {      // 相当于 window.onload = function(){}
+
+            let $btn = $("#myBtn");     //document.getElementById() **注意：双引号里面要加# 不加#就是标签名选择器 .class为类型选择器
+            $btn.click(function () {     //obj.onclick() = function(){}
+                $("div").css("background-color", "#01847f")
+            })
+
+            $("<div id='newDiv'>\n" +
+                "                <span>div-span-1</span>\n" +
+                "                <span>div-span-2</span>\n" +
+                "            </div>").appendTo("body");
+
+            let $btn2  = $("#myBtn2")
+            $btn2.click(function (){
+                $("#newDiv").css("background-color", "#e74645")
+
+            })
+        });
+    </script>
+    <style>
+        div{
+            width: 200px;
+            border: black;
+            border: 2px solid;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="myBtn" style="color: #01847f">点击给所有div换色</button>
+    <button id="myBtn2" style="color: #01847f">点击给单个div换色</button>
+<div>
+        <span>div-span-1</span>
+        <span>div-span-2</span>
+    </div>
+    <div>
+        <div><span>test1</span></div>
+        <div><span>test2</span></div>
+    </div>
+</body>
+</html>
