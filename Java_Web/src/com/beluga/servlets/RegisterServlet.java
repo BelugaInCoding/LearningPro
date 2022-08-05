@@ -13,9 +13,18 @@ public class RegisterServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         String name = request.getParameter("uName");
         String pwd = request.getParameter("pwd");
+        String remoteIp = request.getRemoteHost();
 
         System.out.println("注册注册账号为："+name);
         System.out.println("注册密码为："+pwd);
+        System.out.println("访问IP为："+remoteIp);
+
+//        请求转发
+        request.setAttribute("key", "OK");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/loginServlet");
+
+        requestDispatcher.forward(request, response);
+
     }
 
     @Override

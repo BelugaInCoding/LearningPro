@@ -16,10 +16,17 @@ public class LoginServlet extends HttpServlet {
 
         System.out.println("登陆账号为："+name);
         System.out.println("登陆密码为："+pwd);
+
+        Object key = request.getAttribute("key");
+        if (key=="OK"){
+            System.out.println("Do Sth");
+        }
+
+
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request, response);
     }
 }
