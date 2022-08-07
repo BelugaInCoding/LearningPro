@@ -5,16 +5,22 @@
     <title>注册页面</title>
 </head>
 <body>
-    <form action="register" method="post">
+    <form action="registerServlet" method="post">
         账号：<label><input type="text" name="uName" placeholder="用户名"></label><br>
         密码：<label><input type="password" name="pwd" placeholder="密码"></label><br>
         <input type="submit" value="注册" style="color: #01847f">
     </form>
 
-    <form action="login" method="post">
+    <form action="loginServlet" method="post">
         账号：<label><input type="text" name="uName" placeholder="用户名"></label><br>
         密码：<label><input type="password" name="pwd" placeholder="密码"></label><br>
         <input type="submit" value="登录" style="color: #01847f">
+    </form>
+
+    <form action="responseIOServlet" method="post">
+        账号：<label><input type="text" name="uName" placeholder="用户名"></label><br>
+        密码：<label><input type="password" name="pwd" placeholder="密码"></label><br>
+        <input type="submit" value="测试" style="color: #01847f">
     </form>
 </body>
 </html>

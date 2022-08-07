@@ -25,4 +25,13 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <servlet-class>com.beluga.servlets.ResponseIOServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResponseIOServlet</servlet-name>
+        <url-pattern>/responseIOServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
