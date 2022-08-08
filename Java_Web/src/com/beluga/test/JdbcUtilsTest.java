@@ -14,9 +14,11 @@ public class JdbcUtilsTest {
     @Test
     public void  test(){
         for(int i =0 ; i<30; i++){
+            // 拿了之后释放 下次循环还拿这个
             Connection conn = JdbcUtils.getConnection();
             System.out.println(i+"--- testGet:"+conn);
             JdbcUtils.close(conn);
         }
     }
+
 }

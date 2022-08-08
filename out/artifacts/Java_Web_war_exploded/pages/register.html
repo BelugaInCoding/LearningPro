@@ -18,6 +18,7 @@
                 let patt = /^\w{3,12}$/;
                 if(!patt.test(username.val())){
                     $("#unspan").css("color", "#ff0000").text("×");
+                    usernamef = false;
                 }else {
                     $("#unspan").css("color","#ADFF2FFF").text("√");
                     usernamef = true;
@@ -29,6 +30,7 @@
                 let patt = /^\w{6,15}$/;
                 if (!patt.test(pwd.val())){
                     $("#pwdspan").css("color", "#ff0000").text("×");
+                    pwdf = false;
                 }else {
                     $("#pwdspan").css("color","#ADFF2FFF").text("√");
                     pwdf = true;
@@ -50,6 +52,7 @@
                 let repwd = $("#repwd");
                 if(pwd.val() != repwd.val()){
                     $("#repwdspan").css("color", "#ff0000").text("×");
+                    repwdf = false;
                 }else {
                     $("#repwdspan").css("color","#ADFF2FFF").text("√");
                     repwdf = true;
@@ -73,6 +76,7 @@
                 let patt = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
                 if (!patt.test(emaile.val())){
                     $("#emailspan").css("color", "#ff0000").text("×");
+                    emailf = false;
                 }else {
                     $("#emailspan").css("color","#ADFF2FFF").text("√");
                     emailf = true;
@@ -82,22 +86,30 @@
             /*change验证码*/
             $("#code").change(function (){
                 //TODO 后面来做验证码
-                $("#codespan").css("color","#ADFF2FFF").text("√");
-                codef = true;
+                let code = $("#code");
+                code = $.trim(code.val());//去掉左右的空格
+                if (code == "" || code == null){
+                    $("#codespan").css("color", "#ff0000").text("×");
+                    codef = false;
+                }else{
+                    $("#codespan").css("color","#ADFF2FFF").text("√");
+                    codef = true;
+                }
             });
 
             /* submit提交的点击事件 所有的flage为true */
             $("#submit").click(function (){
                 if(usernamef && pwdf && repwdf && emailf && codef){
                     return true
+                }else{
+                    return false;
                 }
-                return false;
             });
         });
     </script>
 </head>
 <body>
-    <form action="/register" method="post">
+    <form action="../register" method="post">
         <label>用户名：</label><br>
             <input type="text" id="username" name="username" placeholder="用户名">
             <span id="unspan"></span>

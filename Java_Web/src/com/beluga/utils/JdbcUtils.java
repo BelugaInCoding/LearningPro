@@ -25,7 +25,7 @@ public class JdbcUtils {
             properties.load(inputStream);
             //创建数据库连接池
             dataSource = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);
-//            System.out.println(dataSource.getConnection());
+            //System.out.println(dataSource.getConnection());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -36,17 +36,13 @@ public class JdbcUtils {
      * @return 返回null 连接失败 有值就是成功
      */
     public static Connection getConnection(){
-
         Connection conn = null;
-
         try {
             conn = dataSource.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return conn;
-
     }
 
     /**

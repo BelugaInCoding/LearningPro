@@ -4,28 +4,28 @@ package com.beluga.pojo;
  * @author Beluga
  * @createTime 2022/8/7 -- 21:49
  */
-public class user {
-    private int Id;
+public class User {
+    private int id;
     private String username;
     private String pwd;
     private String email;
 
-    public user() {
+    public User() {
     }
 
-    public user(int id, String username, String pwd, String email) {
-        Id = id;
+    public User(int id, String username, String pwd, String email) {
+        this.id = id;
         this.username = username;
         this.pwd = pwd;
         this.email = email;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getUsername() {
@@ -55,7 +55,7 @@ public class user {
     @Override
     public String toString() {
         return "user{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", username='" + username + '\'' +
                 ", pwd='" + pwd + '\'' +
                 ", email='" + email + '\'' +
