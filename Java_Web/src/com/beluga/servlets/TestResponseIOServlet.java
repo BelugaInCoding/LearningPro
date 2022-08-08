@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Objects;
 
-public class ResponseIOServlet extends HttpServlet {
+public class TestResponseIOServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // 字节流字符流不能同时使用 会报错

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <script type="text/javascript" src="../JQuery/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+        $(function (){
+            let usernamef = false;
+            let pwdf = false;
+            let repwdf = false;
+            let emailf = false;
+            let codef = false;
+
+            /*change事件正则验证用户名*/
+            $("#username").change(function(){
+                let username = $("#username");
+                let patt = /^\w{3,12}$/;
+                if(!patt.test(username.val())){
+                    $("#unspan").css("color", "#ff0000").text("×");
+                }else {
+                    $("#unspan").css("color","#ADFF2FFF").text("√");
+                    usernamef = true;
+                }
+            });
+            /*change事件正则验证密码*/
+            $("#pwd").change(function (){
+                let pwd = $("#pwd");
+                let patt = /^\w{6,15}$/;
+                if (!patt.test(pwd.val())){
+                    $("#pwdspan").css("color", "#ff0000").text("×");
+                }else {
+                    $("#pwdspan").css("color","#ADFF2FFF").text("√");
+                    pwdf = true;
+                }
+            });
+            /*点击方块显示密码*/
+            $("#pwdshow").click(function (){
+                let pwd = $("#pwd");
+                if(pwd.attr("type")=="password"){
+                    pwd.attr("type","text");
+                }else {
+                    pwd.attr("type","password");
+                }
+            });
+
+            /*change事件验证密码是否相同*/
+            $("#repwd").change(function (){
+                let pwd = $("#pwd");
+                let repwd = $("#repwd");
+                if(pwd.val() != repwd.val()){
+                    $("#repwdspan").css("color", "#ff0000").text("×");
+                }else {
+                    $("#repwdspan").css("color","#ADFF2FFF").text("√");
+                    repwdf = true;
+                }
+            });
+            /*点击方块显示二次密码*/
+            $("#repwdshow").click(function (){
+                if(pwdf){   //密码输入正确才需要二次输入验证密码
+                    let repwd = $("#repwd");
+                    if(repwd.attr("type")=="password"){
+                        repwd.attr("type","text");
+                    }else {
+                        repwd.attr("type","password");
+                    }
+                }
+            });
+            /*change事件验证email 是否有@符号*/
+            $("#email").change(function (){
+                let emaile = $("#email");
+                //邮箱正则表达式
+                let patt = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+                if (!patt.test(emaile.val())){
+                    $("#emailspan").css("color", "#ff0000").text("×");
+                }else {
+                    $("#emailspan").css("color","#ADFF2FFF").text("√");
+                    emailf = true;
+                }
+            });
+
+            /*change验证码*/
+            $("#code").change(function (){
+                //TODO 后面来做验证码
+                $("#codespan").css("color","#ADFF2FFF").text("√");
+                codef = true;
+            });
+
+            /* submit提交的点击事件 所有的flage为true */
+            $("#submit").click(function (){
+                if(usernamef && pwdf && repwdf && emailf && codef){
+                    return true
+                }
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <form action="/register" method="post">
+        <label>用户名：</label><br>
+            <input type="text" id="username" name="username" placeholder="用户名">
+            <span id="unspan"></span>
+        <br>
+        <label>密码：</label><br>
+            <input type="password" id="pwd" name="pwd" placeholder="密码">
+            <div id="pwdshow" style="height:10px; width:10px; background-color: #01847f; display: inline-block"></div>
+            <span id="pwdspan"></span>
+        <br>
+        <label>确认密码：</label><br>
+            <input type="password" id="repwd" name="repwd" placeholder="密码">
+            <div id="repwdshow" style="height:10px; width:10px; background-color: #01847f; display: inline-block"></div>
+            <span id="repwdspan"></span>
+        <br>
+        <label>电子邮箱：</label><br>
+            <input type="text" id="email" name="email" placeholder="邮箱">
+            <span id="emailspan"></span>
+        <br>
+        <label>验证码：</label><br>
+            <input type="text" id="code" name="code" placeholder="请输入验证码">
+            <span id="codespan"></span>
+        <br>
+        <input type="submit" id="submit" name="submit" style="color: #01847f">
+    </form>
+</body>
+</html>
