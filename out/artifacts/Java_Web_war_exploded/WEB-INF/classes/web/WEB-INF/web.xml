@@ -10,28 +10,39 @@
 
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.RegisterServlet</servlet-class>
+        <servlet-class>com.beluga.web.RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <servlet>
+        <servlet-name>TestRegisterServlet</servlet-name>
+        <servlet-class>com.beluga.servlets.TestRegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestRegisterServlet</servlet-name>
         <url-pattern>/registerServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.LoginServlet</servlet-class>
+        <servlet-name>TestLoginServlet</servlet-name>
+        <servlet-class>com.beluga.servlets.TestLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
+        <servlet-name>TestLoginServlet</servlet-name>
         <url-pattern>/loginServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ResponseIOServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.ResponseIOServlet</servlet-class>
+        <servlet-name>TestResponseIOServlet</servlet-name>
+        <servlet-class>com.beluga.servlets.TestResponseIOServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ResponseIOServlet</servlet-name>
+        <servlet-name>TestResponseIOServlet</servlet-name>
         <url-pattern>/responseIOServlet</url-pattern>
     </servlet-mapping>
 </web-app>

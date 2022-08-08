@@ -6,6 +6,7 @@ package com.beluga.web; /**
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class RegisterServlet extends HttpServlet {
     @Override
@@ -14,7 +15,11 @@ public class RegisterServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String pwd = request.getParameter("pwd");
         String email = request.getParameter("email");
-        System.out.println(userName+pwd+email);
+
+        System.out.println(userName+"__"+pwd+"__"+email);
+
+        PrintWriter writer = response.getWriter();
+        writer.write(userName + "--" + pwd + "--" + email);
     }
 
     @Override
