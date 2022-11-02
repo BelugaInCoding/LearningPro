@@ -22,22 +22,22 @@ public abstract class BaseDao {
      * INSERT UPDATE DELETE
      * @param sql   sql语句
      * @param args  参数表
-     * @return-1：执行失败； 其他为影响行数
+     * @return -1：执行失败； 其他为影响行数
      */
     public int update(String sql, Object ... args) {
-        Connection connection = JdbcUtils.getConnection();
+        Connection conn = JdbcUtils.getConnection();
         try {
-            return queryRunner.update(connection, sql, args);
+            return queryRunner.update(conn, sql, args);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.close(connection);
+            JdbcUtils.close(conn);
         }
         return -1;
     }
 
     /**
-     *  查询单个对象
+     * 查询单个对象
      * @param type  返回对象的类型
      * @param sql   查询语句
      * @param args  参数列表
@@ -62,7 +62,7 @@ public abstract class BaseDao {
      * @param type 类型泛型
      * @param sql   sql语句
      * @param args  参数列表
-     * @param <T>   返回的参数类型
+     * @param <T>   返回的参数类型的泛型
      * @return
      */
     public <T> List<T> queryForList(Class<T> type, String sql, Object ... args){

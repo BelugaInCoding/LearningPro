@@ -5,7 +5,7 @@ package com.beluga.pojo;
  * @createTime 2022/8/7 -- 21:49
  */
 public class User {
-    private int id;
+    private Integer id;
     private String username;
     private String pwd;
     private String email;
@@ -13,18 +13,18 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String pwd, String email) {
+    public User(Integer id, String username, String pwd, String email) {
         this.id = id;
         this.username = username;
         this.pwd = pwd;
         this.email = email;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
