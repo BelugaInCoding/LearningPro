@@ -1,4 +1,5 @@
-package com.beluga.servlets; /**
+package com.beluga.servlets;
+/**
  * @author Beluga
  * @createTime 2022/12/20 -- 22:24
  */
@@ -13,19 +14,36 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "IndexServlet", value = "/IndexServlet")
+@WebServlet(name = "IndexServlet", value = "/indexer")
 public class IndexServlet extends ViewBaseServlet {
 
     UserService userService = new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
+
+        int pageNo = 1;
+        String pageNoStr = request.getParameter("pageNo");
+        if (pageNoStr!=null && !"".equals(pageNoStr)){
+            pageNo = Integer.parseInt(pageNoStr);
+        }
+
         HttpSession session = request.getSession();
 
-        List<User> allUser = userService.getAllUser();
+        // 获取全部用户数据
+        // List<User> allUser = userService.getAllUser();
+        // session.setAttribute("allUser",allUser);
 
-        session.setAttribute("allUser",allUser);
-        super.processTemplate("testThymeleaf", request, response);
+        // 分页获取用户数据
+        session.setAttribute("pageNo", pageNo);
+
+        int userCount = userService.getUserCount();
+        int pageCount = (userCount+5-1)/5;
+        session.setAttribute("pageCount", pageCount);
+        List<User> pageUser = userService.getAllUserAsPage(pageNo);
+        session.setAttribute("allUser", pageUser);
+
+        super.processTemplate("thymeleaf", request, response);
     }
 
     @Override

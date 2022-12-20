@@ -34,4 +34,38 @@ public interface UserService {
      * @return  所有用户信息的List
      */
     public List<User> getAllUser();
+
+    /**
+     * 分页获取用户信息
+     * @param pageNo 第几页
+     * @return  用户信息List 默认一页 2 条
+     */
+    public List<User> getAllUserAsPage(int pageNo);
+
+    /**
+     *  通过用户的id获取所有用户信息
+     * @param user  只有id为有效值 其余为null
+     * @return  返回该用户对象
+     */
+    public User getUserByUserId(User user);
+
+    /**
+     * 获取用户总数
+     * @return 用户总记录条数
+     */
+    public int getUserCount();
+
+    /**
+     * 修改用户信息
+     * @param user 修改后的用户对象
+     * @return  修改是否成功
+     */
+    public boolean changeUserInfo(User user);
+
+    /**
+     * 删除用户信息
+     * @param user 带用户id的用户对象
+     * @return true：删除成功 false：删除失败
+     */
+    public boolean deleteUser(User user);
 }

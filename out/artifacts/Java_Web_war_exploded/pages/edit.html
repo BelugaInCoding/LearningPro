@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改用户信息</title>
+    <link rel="stylesheet" th:href="@{/css/thymeleaf.css}">
+</head>
+<body>
+    <form th:action="@{/update.do}" method="post">
+        <!--<table id="test_table"> -->
+        <table id="test_table" th:object="${user}">
+            <tr>
+                <th colspan="2">
+                    <p>编辑用户信息</p>
+                </th>
+            </tr>
+            <input type="hidden" name="uid" th:value="*{getId()}">
+            <tr>
+                <td>姓名</td>
+                <!-- <td><input type="text" th:placeholder="${user.getUsername()}"></td> -->
+                <td><input type="text" name="uname" th:value="*{getUsername()}"></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="text" name="pwd" th:value="*{getPwd()}"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="text" name="email" th:value="*{getEmail()}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="提交">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/*table {*/
+/*    width: 50%;*/
+/*    border: 1px solid black;*/
+/*    margin: 0 auto;*/
+/*    border-collapse: collapse;*/
+/*}*/
+
+td {
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: antiquewhite;
+}

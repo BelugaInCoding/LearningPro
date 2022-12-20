@@ -5,28 +5,7 @@
          version="4.0">
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
-    <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.beluga.web.RegisterServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.beluga.web.LoginServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
 
     <!-- 在上下文参数中配置视图前缀和视图后缀 -->
     <context-param>
@@ -41,7 +20,7 @@
    <!--
    <servlet>
         <servlet-name>TestRegisterServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.TestRegisterServlet</servlet-class>
+        <servlet-class>com.beluga.servlets.test.TestRegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TestRegisterServlet</servlet-name>
@@ -50,7 +29,7 @@
 
     <servlet>
         <servlet-name>TestLoginServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.TestLoginServlet</servlet-class>
+        <servlet-class>com.beluga.servlets.test.TestLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TestLoginServlet</servlet-name>
@@ -59,7 +38,7 @@
 
     <servlet>
         <servlet-name>TestResponseIOServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.TestResponseIOServlet</servlet-class>
+        <servlet-class>com.beluga.servlets.test.TestResponseIOServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TestResponseIOServlet</servlet-name>

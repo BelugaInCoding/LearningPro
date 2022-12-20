@@ -26,6 +26,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByUserId(User user) {
+        return userDao.queryUserByUserId(user.getId());
+    }
+
+    @Override
+    public int getUserCount() {
+        return userDao.queryUserCount();
+    }
+
+    @Override
+    public boolean changeUserInfo(User user) {
+        int flag = userDao.updateUserById(user);
+        if (flag==1){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteUser(User user) {
+        int flag = userDao.deleteUserById(user);
+        if (flag==1){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public boolean isUsernameExist(User user) {
         if (userDao.queryUserByUsername(user.getUsername())!=null){
             return true;
@@ -36,5 +64,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUser() {
         return userDao.queryAllUser();
+    }
+
+    @Override
+    public List<User> getAllUserAsPage(int pageNo) {
+        return userDao.queryAllUserAsPage(pageNo);
     }
 }
