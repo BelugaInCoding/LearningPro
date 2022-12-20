@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试Thymeleaf跳转</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>密码</th>
+            <th>email</th>
+            <th>操作</th>
+        </tr>
+        <tr th:if="${#lists.isEmpty(session.allUser)}">
+            <td colspan="4">没有用户</td>
+        </tr>
+        <tr th:unless="${#lists.isEmpty(session.allUser)}" th:each="user : ${session.allUser}">
+            <td th:text="${user.getId()}"></td>
+            <td th:text="${user.getUsername()}"></td>
+            <td th:text="${user.getPwd()}"></td>
+            <td th:text="${user.getEmail()}"></td>
+
+        </tr>
+    </table>
+</body>
+</html>
