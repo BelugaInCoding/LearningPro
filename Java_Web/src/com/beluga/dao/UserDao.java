@@ -2,6 +2,8 @@ package com.beluga.dao;
 
 import com.beluga.pojo.User;
 
+import java.util.List;
+
 /**
  * @author Beluga
  * @createTime 2022/8/15 -- 22:36
@@ -28,4 +30,10 @@ public interface UserDao {
      * @return 1为成功 -1为失败
      */
     public int saveUser(User user);
+
+    /**
+     * 获取所有用户信息
+     * @return
+     */
+    public List<User> queryAllUser();
 }

@@ -21,10 +21,10 @@
             <entry key="com.zeroturnaround.jrebel.FormatVersion" value="7.0.0" />
             <entry key="com.zeroturnaround.jrebel.remoting.DeleteUnindexedFiles" value="false" />
             <entry key="jrebelEnabled" value="true" />
-            <entry key="lastExternalPluginCheckTime" value="1667306680854" />
+            <entry key="lastExternalPluginCheckTime" value="1669995343688" />
           </map>
         </option>
-        <option name="version" value="7" />
+        <option name="version" value="8" />
       </configuration>
     </facet>
   </component>
@@ -38,5 +38,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" scope="PROVIDED" name="Tomcat 8.5.38" level="application_server_libraries" />
     <orderEntry type="library" exported="" name="book_store_lib" level="project" />
+    <orderEntry type="library" exported="" name="lib_thymeleaf" level="project" />
   </component>
 </module>

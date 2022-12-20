@@ -9,6 +9,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="book_store_lib" />
+          <element id="library" level="project" name="lib_thymeleaf" />
         </element>
       </element>
     </root>

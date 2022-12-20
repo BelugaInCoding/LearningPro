@@ -5,6 +5,8 @@ import com.beluga.dao.impl.UserDaoImpl;
 import com.beluga.pojo.User;
 import com.beluga.service.UserService;
 
+import java.util.List;
+
 /**
  * @author Beluga
  * @createTime 2022/11/2 -- 23:40
@@ -29,5 +31,10 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        return userDao.queryAllUser();
     }
 }

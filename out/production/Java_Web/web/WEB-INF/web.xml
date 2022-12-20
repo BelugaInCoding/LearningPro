@@ -11,15 +11,35 @@
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.beluga.web.RegisterServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
-    
-    
-    
+
     <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.beluga.web.LoginServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- 在上下文参数中配置视图前缀和视图后缀 -->
+    <context-param>
+        <param-name>view-prefix</param-name>
+        <param-value>/pages/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>view-suffix</param-name>
+        <param-value>.html</param-value>
+    </context-param>
+
+   <!--
+   <servlet>
         <servlet-name>TestRegisterServlet</servlet-name>
         <servlet-class>com.beluga.servlets.TestRegisterServlet</servlet-class>
     </servlet>
@@ -45,4 +65,5 @@
         <servlet-name>TestResponseIOServlet</servlet-name>
         <url-pattern>/responseIOServlet</url-pattern>
     </servlet-mapping>
+    -->
 </web-app>

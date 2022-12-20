@@ -14,7 +14,7 @@ public class TestLoginServlet extends HttpServlet {
 //        request.setCharacterEncoding("UTF-8");
 //        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
-        String name = request.getParameter("uName");
+        String name = request.getParameter("username");
         String pwd = request.getParameter("pwd");
 
         System.out.println("登陆账号为："+name);
