@@ -1,15 +1,38 @@
-/*table {*/
-/*    width: 50%;*/
-/*    border: 1px solid black;*/
-/*    margin: 0 auto;*/
-/*    border-collapse: collapse;*/
-/*}*/
+/*
+table {
+    width: 50%;
+    border: 1px solid black;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+*/
+
+h1 {
+    margin-left: 100px;
+}
+
+#toRegister{
+    margin-left: 295px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#searchSpan{
+    margin-left: 2px;
+}
+
+div{
+    margin-left: 80px;
+    margin-top: 5px;
+}
 
 td {
     height: 50px;
     border: 1px solid black;
     text-align: center;
     vertical-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 tbody tr:nth-child(even) {

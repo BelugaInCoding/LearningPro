@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author Beluga
- * @createTime 2022/8/15 -- 23:21
+ * @creatTime 2022/8/15 -- 23:21
  */
 public class UserDaoImpl extends BaseDao implements UserDao {
 
@@ -30,6 +30,12 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     }
 
     @Override
+    public List<User> queryUserByKeyword(String keyWord) {
+        String sql = "select * from t_user where username like ?";
+        return queryForList(User.class, sql, '%'+keyWord+'%');
+    }
+
+    @Override
     public int saveUser(User user) {
         String sql = "insert into t_user(username, pwd, email) " +
                     "values(?,?,?)";
@@ -39,19 +45,19 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     @Override
     public List<User> queryAllUser() {
         String sql = "select * from t_user";
-        return queryForList(User.class, sql, null);
+        return queryForList(User.class, sql,null);
     }
 
     @Override
-    public List<User> queryAllUserAsPage(int pageNo) {
-        String sql = "select * from t_user limit ? , 5";
-        return queryForList(User.class, sql, (pageNo - 1)*5);
+    public List<User> queryAllUserAsPage(String keyWord, int pageNo) {
+        String sql = "select * from t_user where username like ? limit ? , 5 ";
+        return queryForList(User.class, sql, "%"+keyWord+"%", (pageNo - 1)*5);
     }
 
     @Override
-    public Integer queryUserCount() {
-        String sql = "select count(*) from t_user";
-        Object count = queryForSingleValue(sql, null);
+    public Integer queryUserCount(String keyWord) {
+        String sql = "select count(*) from t_user where username like ?";
+        Object count = queryForSingleValue(sql, "%"+keyWord+"%");
         return Integer.parseInt(count.toString());
     }
 

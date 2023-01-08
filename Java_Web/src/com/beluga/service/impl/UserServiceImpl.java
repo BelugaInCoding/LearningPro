@@ -31,9 +31,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int getUserCount() {
-        return userDao.queryUserCount();
+    public int getUserCount(String keyWord) {
+        return userDao.queryUserCount(keyWord);
     }
+
+    @Override
+    public List<User> getUserByKeyword(String keyWord) {
+        return userDao.queryUserByKeyword(keyWord);
+    }
+
 
     @Override
     public boolean changeUserInfo(User user) {
@@ -67,7 +73,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUserAsPage(int pageNo) {
-        return userDao.queryAllUserAsPage(pageNo);
+    public List<User> getAllUserAsPage(String keyword, int pageNo) {
+        return userDao.queryAllUserAsPage(keyword,pageNo);
     }
 }

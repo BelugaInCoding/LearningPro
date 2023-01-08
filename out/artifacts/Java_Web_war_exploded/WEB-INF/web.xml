@@ -20,7 +20,7 @@
    <!--
    <servlet>
         <servlet-name>TestRegisterServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.test.TestRegisterServlet</servlet-class>
+        <servlet-class>com.beluga.controllers.test.TestRegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TestRegisterServlet</servlet-name>
@@ -29,7 +29,7 @@
 
     <servlet>
         <servlet-name>TestLoginServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.test.TestLoginServlet</servlet-class>
+        <servlet-class>com.beluga.controllers.test.TestLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TestLoginServlet</servlet-name>
@@ -38,7 +38,7 @@
 
     <servlet>
         <servlet-name>TestResponseIOServlet</servlet-name>
-        <servlet-class>com.beluga.servlets.test.TestResponseIOServlet</servlet-class>
+        <servlet-class>com.beluga.controllers.test.TestResponseIOServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TestResponseIOServlet</servlet-name>

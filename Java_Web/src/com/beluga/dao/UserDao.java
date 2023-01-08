@@ -32,6 +32,13 @@ public interface UserDao {
     public User queryUserByUserId(int uId);
 
     /**
+     * 根据关键字查询用户List
+     * @param keyWord 关键词
+     * @return 用户list
+     */
+    public List<User> queryUserByKeyword(String keyWord);
+
+    /**
      * 用户数据存入数据库
      * @param user 用户对象
      * @return 1为成功 -1为失败
@@ -46,16 +53,17 @@ public interface UserDao {
 
     /**
      * 分页获取用户信息
+     * @param keyWord 查询关键词
      * @param pageNo 页数
      * @return 当前页用户List 默认一页 2 条
      */
-    public List<User> queryAllUserAsPage(int pageNo);
+    public List<User> queryAllUserAsPage(String keyWord, int pageNo);
 
     /**
      * 获取用户总记录数
      * @return  用户总记录数
      */
-    public Integer queryUserCount();
+    public Integer queryUserCount(String keyWord);
 
     /**
      *通过用户id检索用户 并修改用户信息

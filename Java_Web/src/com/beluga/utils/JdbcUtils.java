@@ -2,6 +2,7 @@ package com.beluga.utils;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.apache.commons.dbutils.DbUtils;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -47,6 +48,7 @@ public class JdbcUtils {
 
     /**
      * 关闭数据库连接
+     * 相当于 DbUtils.closeQuietly(conn);
      * @param conn
      */
     public static void close(Connection conn){

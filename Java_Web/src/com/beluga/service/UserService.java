@@ -37,10 +37,11 @@ public interface UserService {
 
     /**
      * 分页获取用户信息
+     * @param keyWord 查询关键词
      * @param pageNo 第几页
      * @return  用户信息List 默认一页 2 条
      */
-    public List<User> getAllUserAsPage(int pageNo);
+    public List<User> getAllUserAsPage(String keyWord, int pageNo);
 
     /**
      *  通过用户的id获取所有用户信息
@@ -53,7 +54,14 @@ public interface UserService {
      * 获取用户总数
      * @return 用户总记录条数
      */
-    public int getUserCount();
+    public int getUserCount(String keyWord);
+
+    /**
+     * 通过关键词模糊查询用户
+     * @param keyWord 关键词
+     * @return  含有关键词的用户名list
+     */
+    public List<User> getUserByKeyword(String keyWord);
 
     /**
      * 修改用户信息

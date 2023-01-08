@@ -8,8 +8,10 @@
 </head>
 <body>
 <h1>用户管理平台</h1>
-<form th:action="search.do" method="post">
-    请输入查询用户名：<input type="text" name="keyname">
+<form th:action="@{/user.do}" method="post">
+    <span id="searchSpan">请输入查询用户名：</span>
+    <input type="hidden" name="operate" value="search">
+    <input type="text" name="keyWord" th:value="${session.keyWord}">
     <input type="submit" value="查询">
 </form>
 <table id="test_table">
@@ -21,7 +23,7 @@
         <th>操作</th>
     </tr>
 
-    <a th:href="@{/pages/register.html}"><input type="button" value="注册/添加用户"></input></a>
+    <input id="toRegister" type="button" value="注册/添加用户" th:onclick="toRegister()">
 
     <tr th:if="${#lists.isEmpty(session.allUser)}">
         <td colspan="5">没有用户</td>
@@ -30,15 +32,15 @@
     <tr th:unless="${#lists.isEmpty(session.allUser)}" th:each="user : ${session.allUser}">
         <td th:text="${user.getId()}"></td>
         <!--<td><a th:text="${user.getUsername()}" th:href="@{'/edit.do?uid='+${user.getId()}}"></a></td> -->
-        <td><a th:text="${user.getUsername()}" th:href="@{/edit.do(uid=${user.getId()})}"></a></td>
+        <td><a th:text="${user.getUsername()}" th:href="@{/user.do(uid=${user.getId()},operate='edit')}"></a></td>
         <td th:text="${user.getPwd()}"></td>
         <td th:text="${user.getEmail()}"></td>
         <!-- <td><button th:onclick="'delete('+${user.getId()}+')'">删除</button></td> -->
         <!-- 竖线中间碰到$会自动识别thymeleaf表达式 然后拼接字符串 -->
-        <td><button th:onclick="|deleteUser(${user.getId()})|">删除</button></td>
+        <td><input type="button" value="删除" th:onclick="|deleteUser(${user.getId()})|"></td>
     </tr>
 </table>
-<div>
+<div style="">
     <input type="button" value="首  页" th:onclick="|page(1)|" th:disabled="${session.pageNo==1}">
     <input type="button" value="上一页" th:onclick="|page(${session.pageNo-1})|" th:disabled="${session.pageNo==1}">
     <input type="button" value="下一页" th:onclick="|page(${session.pageNo+1})|" th:disabled="${session.pageNo==session.pageCount}">

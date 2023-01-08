@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>修改用户信息</title>
-    <link rel="stylesheet" th:href="@{/css/thymeleaf.css}">
+    <link rel="stylesheet" th:href="@{/css/edit.css}">
 </head>
 <body>
-    <form th:action="@{/update.do}" method="post">
+    <form th:action="@{/user.do}" method="post">
+        <input type="hidden" name="operate" value="update">
         <!--<table id="test_table"> -->
         <table id="test_table" th:object="${user}">
             <tr>
@@ -14,7 +15,18 @@
                     <p>编辑用户信息</p>
                 </th>
             </tr>
+
+            <tr th:if="${user == null}">
+                <td colspan="5">没有用户</td>
+                <td colspan="5">
+                    <a th:href="@{/indexer}">
+                        <input type="button" value="返回">
+                    </a>
+                </td>
+            </tr>
+
             <input type="hidden" name="uid" th:value="*{getId()}">
+
             <tr>
                 <td>姓名</td>
                 <!-- <td><input type="text" th:placeholder="${user.getUsername()}"></td> -->
@@ -33,6 +45,7 @@
                     <input type="submit" value="提交">
                 </td>
             </tr>
+
         </table>
     </form>
 </body>

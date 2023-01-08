@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans>
+    <!-- DispatcherServlet中request拿到的servletPath按名字配置实例化的类 -->
+    <bean id="user" class="com.beluga.controllers.UserController">
+    </bean>
+</beans>

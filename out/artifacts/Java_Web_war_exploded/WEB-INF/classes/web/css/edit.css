@@ -1,0 +1,12 @@
+td {
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: antiquewhite;
+}
